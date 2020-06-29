@@ -17,6 +17,16 @@ export default {
         hash: "#data"
       }
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    //this.link will not work here
+    //as long as you don't next here this component is not loaded
+    const auth = true;
+    if (auth === true) {
+      next(); //you can pass view model to next function
+    } else {
+      next(false);
+    }
   }
 };
 </script>
